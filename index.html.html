@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chila | Diseño y Confecciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #6A5B7B;
+            --soft-purple: #8B7B9E;
+            --accent-lavender: #E8E3EE;
+            --bg-cream: #FAF8F5;
+            --text-dark: #2D2733;
+            --text-muted: #66606E;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- Header & Navegación --- */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img{
+            height: 80px;
+            width: auto;
+            display: block;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 0.75rem;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-purple);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--white) 0%, var(--bg-cream) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary-purple);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--soft-purple);
+            transform: translateY(-2px);
+        }
+
+        /* --- Secciones Generales --- */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-purple);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--soft-purple);
+            margin: 0.5rem auto 0;
+        }
+
+        /* --- Sobre la Marca (Nosotros) --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-text h3 {
+            color: var(--primary-purple);
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .video-container {
+            width: 100%;
+            height: 350px;
+            background-color: var(--accent-lavender);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: none;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            clear: both;
+            width: 100%;
+        }
+
+        .mv-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border-left: 4px solid var(--primary-purple);
+        }
+
+        .mv-card h3 {
+            color: var(--primary-purple);
+            margin-bottom: 0.8rem;
+        }
+
+        .mv-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- Valores / Lo que nos hace únicos --- */
+        .values-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .value-badge {
+            background-color: var(--accent-lavender);
+            color: var(--primary-purple);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* --- Colección de Ropa (Centrada) --- */
+        .grid-products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s;
+            flex: 1 1 240px;
+            max-width: 280px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img img {
+  width: 100%;
+  height: 300px; /* O la altura que prefieras */
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+        .card-body {
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        .card-body h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .card-body p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Promociones Banner --- */
+        .promo-banner {
+            background: var(--primary-purple);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 2rem auto;
+        }
+
+        .promo-banner h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .promo-banner p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-purple);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* --- Contacto & Footer --- */
+        footer {
+            background-color: var(--white);
+            border-top: 1px solid var(--accent-lavender);
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+
+        .footer-col p, .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--bg-cream);
+            padding-top: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <img src="C:\Users\julie\OneDrive\Documents\SENA\Etapa productiva\Página\logo.png" alt="logo CHILA"></a>
+            <ul class="nav-links">
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#coleccion">Nuestra Colección</a></li>
+                <li><a href="#promociones">Promociones</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero / Portada -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Viste tu esencia con estilo y seguridad</h1>
+            <p>Ropa femenina moderna, cómoda y versátil pensada para mujeres reales de diferentes estilos y tallas.</p>
+            <a href="#coleccion" class="btn-primary">Explorar Colección</a>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros / Información de la Marca -->
+    <section id="nosotros">
+        <h2 class="section-title">Nuestra Historia y Marca</h2>
+        
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Identidad & Motivación</h3>
+                <p>CHILA nace como un emprendimiento de diseño y confección enfocado en combinar estilo, comodidad y versatilidad. Nació de la necesidad de ofrecer ropa que realmente se adapte a diferentes tipos de cuerpo, sin dejar de lado la elegancia y la practicidad.</p>
+                <p>Para nosotros, CHILA representa independencia, creatividad y la oportunidad de impactar positivamente en cómo las mujeres se sienten consigo mismas diariamente.</p>
+            </div>
+            
+            <!-- Video de la Marca -->
+            <div class="video-container">
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/8xKIgrSFJo4" 
+                    title="Diseños y Confecciones Chila | Conoce nuestra marca" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Misión y Visión -->
+        <div class="mv-grid">
+            <div class="mv-card">
+                <h3>Misión</h3>
+                <p>Diseñar y confeccionar ropa femenina moderna, cómoda y versátil para mujeres de diferentes estilos y tallas, utilizando canales digitales para acercar la moda a más personas.</p>
+            </div>
+            <div class="mv-card">
+                <h3>Visión (3-5 Años)</h3>
+                <p>Ser una marca reconocida en Colombia por su inclusión, calidad y presencia digital, expandiéndose a nivel nacional e iniciando ventas internacionales.</p>
+            </div>
+            <div class="mv-card">
+                <h3>Impacto</h3>
+                <p>Solucionar la falta de prendas que combinen buen diseño, comodidad e inclusión de tallas a un precio accesible, haciendo que las mujeres se sientan seguras e identificadas.</p>
+            </div>
+        </div>
+
+        <!-- Valores de Marca -->
+        <div style="margin-top: 3rem; text-align: center;">
+            <h3 style="color: var(--primary-purple); margin-bottom: 1rem;">Nuestros Valores</h3>
+            <div class="values-list">
+                <span class="value-badge">Inclusión</span>
+                <span class="value-badge">Confianza</span>
+                <span class="value-badge">Calidad</span>
+                <span class="value-badge">Comodidad</span>
+                <span class="value-badge">Estilo Accesible</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colección de Ropa -->
+    <section id="coleccion">
+        <h2 class="section-title">Nuestra Colección</h2>
+        <div class="grid-products">
+      <div class="card">
+        <div class="card-img">
+            <img src="C:\Users\julie\OneDrive\Documents\SENA\Etapa productiva\Página\001.png">
+        </div>
+        <div class="card-body">
+          <h3>Vestido Aurora</h3>
+          <p>Diseño envolvente y textura suave, adaptada a diferentes siluetas con comodidad y estilo.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+            <img src="C:\Users\julie\OneDrive\Documents\SENA\Etapa productiva\Página\002.png">
+        </div>
+        <div class="card-body">
+          <h3>Enterizo Ébano</h3>
+          <p>Corte de pierna ancha y escote cuadrado con cinturón a juego para realzar la silueta.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+            <img src="C:\Users\julie\OneDrive\Documents\SENA\Etapa productiva\Página\003.png">
+        </div>
+        <div class="card-body">
+          <h3>Blusa Seda 'Zafiro'</h3>
+          <p>Manga larga en tono azul zafiro satinado, perfecta para un look elegante y sofisticado.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+            <img src="C:\Users\julie\OneDrive\Documents\SENA\Etapa productiva\Página\004.png">
+        </div>
+        <div class="card-body">
+          <h3>Pantalón Ajustado 'Espresso'</h3>
+          <p>Diseño formal de tiro alto en tono café oscuro que define la figura con gran estructura.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+            <img src="C:\Users\julie\OneDrive\Documents\SENA\Etapa productiva\Página\005.png">
+        </div>
+        <div class="card-body">
+          <h3>Blusa Lino 'Rosa Polvo'</h3>
+          <p>Manga corta con lazo al cuello en tono rosa suave, ideal para un estilo fresco y femenino.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+            <img src="C:\Users\julie\OneDrive\Documents\SENA\Etapa productiva\Página\006.png">
+        </div>
+        <div class="card-body">
+          <h3>Pantalón Palazzo 'Lino Croma'</h3>
+          <p>Estilo palazzo de pernera ancha en tono marfil para un ajuste holgado y contemporáneo.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+            <img src="C:\Users\julie\OneDrive\Documents\SENA\Etapa productiva\Página\007.png">
+        </div>
+        <div class="card-body">
+          <h3>Blusa Algodón 'Arayas'</h3>
+          <p>Camisa clásica de manga larga a rayas azules y blancas, ideal para un look profesional.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+            <img src="C:\Users\julie\OneDrive\Documents\SENA\Etapa productiva\Página\008.png">
+        </div>
+        <div class="card-body">
+          <h3>Pantalón Pitillo 'Ónix'</h3>
+          <p>Corte pitillo en color negro clásico que estiliza la figura y combina con todo.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+            <img src="C:\Users\julie\OneDrive\Documents\SENA\Etapa productiva\Página\009.png">
+        </div>
+        <div class="card-body">
+          <h3>Top Backless 'Aura'</h3>
+          <p>Top satinado beige de tirantes con escote en V y tiras cruzadas en la espalda.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+            <img src="C:\Users\julie\OneDrive\Documents\SENA\Etapa productiva\Página\010.png">
+        </div>
+        <div class="card-body">
+          <h3>Pantalón 'Sastre Marfil'</h3>
+          <p>Corte sastre recto en tono crema, con caída fluida para ocasiones formales e informales.</p>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <!-- Promociones & Promos -->
+    <section id="promociones">
+        <div class="promo-banner">
+            <h2>Promociones & Catálogo Digital</h2>
+            <p>¡Atención personalizada para encontrar tu talla ideal! Pide nuestro catálogo completo o consulta los pedidos personalizados.</p>
+            <a href="https://wa.me/573195113504" class="btn-secondary" target="_blank">Pedir Catálogo por WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Contacto & Pie de página -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Diseño y Confecciones CHILA</h4>
+                <p>Viste tu esencia con estilo y seguridad. Moda femenina hecha con inclusión, comodidad y confianza.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Atención Directa</h4>
+                <p>WhatsApp: +57 3195113504</p>
+                <p>Tallas: XS a XXL (Enfoque inclusivo)</p>
+                <p>Atención y pedidos personalizados</p>
+            </div>
+            <div class="footer-col">
+                <h4>Redes Sociales</h4>
+                <a href="https://www.instagram.com/chila.moda/" target="_blank">Instagram: @chila.moda</a>
+                <a href="https://youtube.com/@chilamoda?si=BtV0bqXQg_qKBfHw"target="_blank">Youtube: @chilamoda</a>
+                <a href="#">Web: www.chilamoda.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Diseño y Confecciones Chila. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
